@@ -1,0 +1,12 @@
+services:
+  envoy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    volumes:
+      - ./envoy.yaml:/etc/envoy/envoy.yaml:ro
+  
+  http-echo:
+    image: mendhak/http-https-echo:33
